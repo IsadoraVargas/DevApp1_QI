@@ -1,0 +1,100 @@
+//Biblioteca
+package biblioteca;
+import java.util.Scanner;
+public class Biblioteca {
+
+    public static void main(String[] args) {
+        Scanner leia = new Scanner (System.in);
+        Cliente c1  = new Cliente ();
+        Livro l1 = new Livro();        
+    System.out.println("Nome do cliente: ");
+    c1.nome = (leia.nextLine());
+    System.out.println("Idade do cliente: ");
+    c1.setIdade(leia.nextInt());
+    System.out.println("Orçamento do cliente: ");
+    l1.setOrcamento(leia.nextDouble());
+    System.out.println("________________________");
+    
+    System.out.println("Insira o titulo do livro: ");
+    l1.titulo = (leia.next());
+    System.out.println("Insira o ano do livro: ");
+    l1.ano = (leia.nextInt());
+    System.out.println("Insira o preço do livro: ");
+    l1.setPreco(leia.nextDouble());
+    System.out.println("________________________");
+    
+    System.out.println("Verificando dado: ");
+System.out.println("Livro: " + l1.getTitulo());
+System.out.println("Autor: " + l1.getAno());
+System.out.println("Preço: " + l1.getPreco());
+System.out.println(l1.verificarPreco());
+    
+    }
+    
+}
+
+// Cliente
+package biblioteca;
+  
+public class Cliente {
+  public String nome;
+  private int idade;
+  
+ public void setNome (String nome) {
+     this.nome = nome;       
+}     
+public String getNome () { 
+     return this.nome;
+}
+void setIdade (int idade) {
+     this.idade = idade;       
+}     
+private int getIdade() { 
+     return this.idade;
+}
+}
+
+// livro 
+package biblioteca;
+
+ public class Livro {
+ public String titulo;
+ public int ano;
+ private double preco;
+ private double orcamento;
+public void setTitulo (String titulo) {
+     this.titulo = titulo;       
+}     
+public String getTitulo () { 
+     return this.titulo;
+}
+private void setAno (int ano) {
+     this.ano = ano;       
+}     
+int getAno() { 
+     return this.ano;
+}
+
+void setPreco (double preco) {
+     this.preco = preco;       
+}     
+double getPreco () { 
+     return this.preco;  
+}
+void setOrcamento (double orcamento) {
+     this.orcamento = orcamento;       
+}     
+private double getOrcamento () { 
+     return this.orcamento; 
+}
+public String verificarPreco () {
+    String resposta; 
+ if(this.preco <= this.orcamento) {
+  resposta = "você pode comprar este livro.";
+}else{ 
+  resposta = "DINHERIO INSUFICIENTE PARA COMPRA.";
+}
+ return resposta;
+}
+}
+
