@@ -13,33 +13,35 @@ package laços.de.repetição;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class ListaDeCompras {
-public static void main(String[] args) {
-ArrayList<String> itens = new ArrayList<String>();
-itens.add("Espinafre");
-itens.add("Gás");
-itens.add("Banana");
-itens.add("Cebola");
-itens.add("Farinha");
-itens.add("Água");
-itens.add("Desodorante");
+public static void main(String[] args) 
+{
+Scanner leia = new Scanner(System.in);
+ArrayList<String> ListaCompras = new ArrayList<>();
+String itens;
+String texto;
+
+System.out.println("Adicione itens na sua lista de compras: ");
+itens = leia.nextLine();
+ListaCompras.add(itens);
+System.out.println(itens + " adicionado com sucesso !");
 
 System.out.println("Lista de compras: " +itens);
 System.out.println("_________________________________________________");
-System.out.println("Consultado itens da lista. Item 3: " + itens.get(4));
+System.out.println("Consultado itens da lista. Item 3: " + ListaCompras.get(4));
 System.out.println("_________________________________________________");
 System.out.println("Mudando item da lista de compras: ");
-itens.set(4, "Feijão" + itens);
+ListaCompras.set(4, itens + itens);
 System.out.println("_________________________________________________");
 System.out.println("Revendo a lista: " + itens);
 System.out.println("_________________________________________________");
-System.out.println("Removendo a lista: " + itens.remove(6));
+System.out.println("Removendo a lista: " + ListaCompras.remove(6));
 System.out.println("_________________________________________________");
-System.out.println("Analizando tamanho da lista: " + itens.size() + " itens na lista.");
+System.out.println("Analizando tamanho da lista: " + ListaCompras.size() + " itens na lista.");
 System.out.println("_________________________________________________");
-System.out.println("Analizando em ordem alfabética:" + "\n" +  "Água, Banana, Cebola, Desodorante, Espinafre, Feijão" );
+System.out.println("Analizando em ordem alfabética:" + "\n" +  ListaCompras.sort());
 System.out.println("_________________________________________________");
 System.out.println("Limpando a lista de compras..."); 
-itens.clear();
+ListaCompras.clear();
 System.out.println(itens);
 }
 }
