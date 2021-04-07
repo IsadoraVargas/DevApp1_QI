@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008000; font-weight: bold;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.example.listview;
+
+<span class="s0">import </span>androidx.appcompat.app.AppCompatActivity;
+
+<span class="s0">import </span>android.app.Activity;
+<span class="s0">import </span>android.content.Intent;
+<span class="s0">import </span>android.os.Bundle;
+<span class="s0">import </span>android.view.View;
+<span class="s0">import </span>android.widget.AdapterView;
+<span class="s0">import </span>android.widget.ArrayAdapter;
+<span class="s0">import </span>android.widget.ListView;
+<span class="s0">import </span>android.widget.Toast;
+
+<span class="s0">public class </span>MainActivity <span class="s0">extends </span>AppCompatActivity {
+
+    <span class="s0">private </span>ListView lista;
+    <span class="s0">private </span>String[] itens = {<span class="s2">&quot;Ruby&quot;</span>,<span class="s2">&quot;CSS&quot;</span>,<span class="s2">&quot;SASS&quot;</span>,<span class="s2">&quot;JavaScript&quot;</span>,<span class="s2">&quot;NodeJs&quot;</span>,<span class="s2">&quot;AngularJs&quot;</span>,<span class="s2">&quot;HTML5&quot;</span>,<span class="s2">&quot;React&quot;</span>,<span class="s2">&quot;jQuery&quot;</span>};
+
+    @Override
+    <span class="s0">protected void </span>onCreate(Bundle savedInstanceState) {
+        <span class="s0">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        lista = findViewById(R.id.lista);
+
+        ArrayAdapter&lt;String&gt; adapter = <span class="s0">new </span>ArrayAdapter&lt;String&gt;(getApplicationContext(),
+                android.R.layout.simple_list_item_2,android.R.id.text1,itens);
+
+        lista.setAdapter(adapter);
+
+        lista.setOnClickListener((<span class="s0">new </span>View.OnClickListener() {
+            @Override
+            <span class="s0">public void </span>onClick(View v) {
+                abrirRuby();
+            }
+        }));
+    }
+    <span class="s0">private void </span>abrirRuby() {
+        Intent janelaRuby = <span class="s0">new </span>Intent(<span class="s0">this</span>, Activity.<span class="s0">class</span>);
+        startActivity(janelaRuby);
+        finish();
+
+        lista.setOnItemClickListener(<span class="s0">new </span>AdapterView.OnItemClickListener() {
+            @Override
+            <span class="s0">public void </span>onItemClick(AdapterView&lt;?&gt; parent, View view, <span class="s0">int </span>i, <span class="s0">long </span>id) {
+                Toast.makeText(MainActivity.<span class="s0">this</span>,itens[i],Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+}</pre>
+</body>
+</html>
